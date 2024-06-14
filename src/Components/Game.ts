@@ -1,5 +1,5 @@
 import Car from "./Car";
-import { getRandomInt } from "../utils/common";
+import LaneMark from "./LaneMark";
 import { CANVAS, LANE } from "../constants/constants";
 
 export interface IGame {
@@ -8,6 +8,7 @@ export interface IGame {
   imgPaths: Array<string>;
   player: Car;
   opponents: Array<Car>;
+  laneMarker: LaneMark;
 }
 
 export default class Game implements IGame {
@@ -16,6 +17,7 @@ export default class Game implements IGame {
   imgPaths: Array<string>;
   player: Car;
   opponents: Array<Car>;
+  laneMarker: LaneMark;
 
   constructor(imgPaths: Array<string>, ctx: CanvasRenderingContext2D) {
     this.imgPaths = imgPaths;
@@ -23,6 +25,7 @@ export default class Game implements IGame {
     this.totalScore = 0;
     this.gameSpeed = 1.01;
     this.opponents = [];
+    this.laneMarker = new LaneMark(this.ctx);
 
     this.player = new Car(this.imgPaths[3], 300, CANVAS.height, true, ctx);
     Object.values(LANE).forEach((x) => {
