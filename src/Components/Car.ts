@@ -1,4 +1,4 @@
-import { CAR } from "../constants/constants";
+import { CANVAS, CAR, SPEED } from "../constants/constants";
 
 export interface ICar {
   img: HTMLImageElement;
@@ -42,6 +42,31 @@ export default class Car implements ICar {
     }
   }
 
+  /**
+   * Move car to left
+   */
+  moveLeft() {
+    if (!this.player) return;
+
+    this.x -= SPEED;
+
+    if (this.x < 0) this.x = 0;
+  }
+
+  /**
+   * Move car to right
+   */
+  moveRight() {
+    if (!this.player) return;
+
+    this.x += SPEED;
+
+    if (this.x + this.width > CANVAS.width) this.x = CANVAS.width - this.width;
+  }
+
+  /**
+   * Draw car on canvas
+   */
   draw() {
     this.ctx.drawImage(
       this.img,
