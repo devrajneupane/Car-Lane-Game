@@ -6,7 +6,12 @@ export const SPEED = 3;
 /**
  * Step at which the player car can be maneuvered horizontally.
  */
-export const STEP = 30;
+export const STEP = 50;
+
+/**
+ * Key to store high score
+ */
+export const SCORE_KEY = "HIGH_SCORE";
 
 /**
  * Canvas properties
