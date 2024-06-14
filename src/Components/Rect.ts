@@ -1,4 +1,7 @@
-import Point from "./Point";
+type Point = {
+  x: number;
+  y: number;
+};
 
 export interface IRect {
   start: Point;
@@ -6,7 +9,7 @@ export interface IRect {
 }
 
 export default class Rect implements IRect {
-  start: Point = new Point(0, 0);
+  start: Point;
   end: Point;
 
   constructor(start: Point, end: Point) {
